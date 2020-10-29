@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>USANDO DOM</title>
+    <script>
+
+        function validarDados() {
+
+            if (document.forms.formulario1.elements["chkMaiuscula"].checked && document.forms.formulario1.elements["chkMinuscula"].checked )
+            {
+                alert ("Escolha apenas 1 opção.");
+                return false;
+            } else if (document.forms.formulario1.elements["chkMaiuscula"].checked == false  && document.forms.formulario1.elements["chkMinuscula"].checked == false  )
+            {
+                alert ("Escolha  1 opção.");
+                return false;
+            } else if (document.forms.formulario1.elements["texto"].value == "") {
+                alert("Preencha campo Texto corretamente!");
+               return false;
+            }  else {
+                if (document.forms.formulario1.elements["chkMaiuscula"].checked){
+                    document.forms.formulario1.elements["texto"].value = document.forms.formulario1.elements["texto"].toUpperCase();
+                } else {
+                    document.forms.formulario1.elements["texto"].value = document.forms.formulario1.elements["texto"].toLowerCase();
+                }
+        }
+        
+        function TranformarMaiuscula() {
+            if (validarDados()) {
+                document.forms.formulario1.elements.Texto.toUpperCase();
+            }
+        }
+
+        function TranformarMinuscula() {
+            if (validarDados()) {
+                document.forms.formulario1.elements.Texto.toUpperCase();
+            }
+        }
+    
+</script>
+
+</head>
+
+<body>
+    <form action="teste" method="POST" name="formulario1" id="formulario1" onsubmit="return validarDados();">
+
+    <div id="principal" width=200 heigth=200 align=center>
+        Nome Completo:
+        <input name="texto" type="text" id="texto" size="52" maxlength="150">
+        <br>
+        <input name="chkMaiuscula" type="checkbox" id="chkMaiuscula">
+        <label for="chkMaiuscula">Tornar Maiuscula</label>
+        <br>
+        <input name="chkMinuscula" type="checkbox" id="chkMinuscula"> 
+        <label for="chkMinuscula">Tornar Minuscula</label>       
+        <br>
+        <br>
+        <br>
+        <br>
+        <input name="Submit" type="submit" form="formulario1" value="Submit">
+        <input name="Reset" type="reset" form="formulario1" value="Redefinir">
+    </div>
+</form>
+</body>
+
+</html>
